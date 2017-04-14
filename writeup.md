@@ -55,7 +55,6 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 
-![alt text][image2]
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
@@ -65,6 +64,9 @@ I tried various combinations of parameters and...
 
 I trained a linear SVM using...
 
+![alt text][image2]
+
+
 ###Sliding Window Search
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
@@ -72,13 +74,27 @@ I trained a linear SVM using...
 I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
 
 ![alt text][image3]
+![alt text][image4]
+![alt text][image5]
+![alt text][image6]
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text][image4]
+![alt text][image7]
+
+
+![alt text][image8]
+
+
+
+![alt text][image9]
+
 ---
+
+
+
 
 ### Video Implementation
 
