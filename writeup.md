@@ -13,14 +13,15 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[image1]: ./examples/car_not_car.png
-[image2]: ./examples/HOG_example.jpg
-[image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
-[video1]: ./project_video.mp4
+[image1]: ./output_images/HOG.png
+[image2]: ./output_images/results.png
+[image3]: ./output_images/Window1.png
+[image4]: ./output_images/Window2.png
+[image5]: ./output_images/Window3.png
+[image6]: ./output_images/Window4.png
+[image7]: ./output_images/Hot_Areas.png
+[image8]: ./output_images/Video_vis.png
+[image9]: ./output_images/Final_Image.png
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
