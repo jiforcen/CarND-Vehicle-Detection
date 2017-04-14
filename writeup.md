@@ -28,14 +28,17 @@ The goals / steps of this project are the following:
 
 ---
 ###Writeup / README
+Writeup that includes all the rubric points is here. [writeup](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup.md).
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
-
-You're reading it!
+All the code included in this project is in the IPython notebook called `code.py`[Code.ipynb](https://github.com/jiforcen/CarND-Vehicle-Detection/blob/master/Code.ipynb)
 
 ###Histogram of Oriented Gradients (HOG)
 
 ####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
+
+Function "get_hog_features" in cell 2 contains the functions necesaries to obtain HOG features from a image.
+
+In cell 4
 
 The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
 
