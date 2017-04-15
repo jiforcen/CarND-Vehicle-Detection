@@ -30,31 +30,20 @@ The goals / steps of this project are the following:
 ###Writeup / README
 Writeup that includes all the rubric points is here. [writeup](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup.md).
 
-All the code included in this project is in the IPython notebook called `code.py`[Code.ipynb](https://github.com/jiforcen/CarND-Vehicle-Detection/blob/master/Code.ipynb)
+All the code included in this project is in the IPython notebook called [Code.ipynb](https://github.com/jiforcen/CarND-Vehicle-Detection/blob/master/Code.ipynb)
 
 ###Histogram of Oriented Gradients (HOG)
 
 ####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-Function "get_hog_features" in cell 2 contains the functions necesaries to obtain HOG features from a image.
+Function "get_hog_features" in cell 2 contains the functions necesaries to obtain HOG features from a image. Also in this cell are included diferent functions used in the project.
 
-In cell 4
+I started by reading in all the `vehicle` and `non-vehicle` images in cell 3, 8792 car images and 8962 not car images are readed, so we can considered it a well balanced dataset.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
-
-I started by reading in all the `vehicle` and `non-vehicle` images. 
-
-get_hog_features from skimage.feature is used to extract hog features,
-
-parameters are obtained experimentally
-
-Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+In cell 4 an exampled of hog extracted hog features are shown in one of the `vehicle` and `non-vehicle` classes images:
+Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 ![alt text][image1]
-
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
-
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
