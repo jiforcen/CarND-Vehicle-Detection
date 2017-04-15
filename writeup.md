@@ -51,9 +51,9 @@ I tried various combinations of parameters looking which produces best results w
 
 Using `YCrCb` color space the parameteres used are:
 
-`HOG:` (orient = 9, pix_per_cell = 8, cell_per_block = 2, hog_channel = "ALL")
-`Spatial` features: (spatial_size = (32, 32) # Spatial binning dimensions)
-`Histogram` features: (hist_bins=32 # Number of histogram bins)
+* HOG: (`orient` = 9, `pix_per_cell = 8`, `cell_per_block = 2`, `hog_channel = "ALL"`)
+* Spatial features: (`spatial_size = (32, 32)`)
+* Histogram features: (`hist_bins=32`)
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
