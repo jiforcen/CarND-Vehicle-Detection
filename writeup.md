@@ -47,7 +47,13 @@ Here is an example using the `YCrCb` color space and HOG parameters of `orientat
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+I tried various combinations of parameters looking which produces best results with the classifier. The combination presented give us 99.35% of accuracy so is considered correct.
+
+Using `YCrCb` color space the parameteres used are:
+
+`HOG:` (orient = 9, pix_per_cell = 8, cell_per_block = 2, hog_channel = "ALL")
+`Spatial` features: (spatial_size = (32, 32) # Spatial binning dimensions)
+`Histogram` features: (hist_bins=32 # Number of histogram bins)
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
