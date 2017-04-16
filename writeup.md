@@ -57,7 +57,9 @@ Using `YCrCb` color space the parameteres used are:
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+In cell 5 a linear SVM is trained using the features explained before extracted from the `vehicle` and `non-vehicle` dataset.
+Data is splited into randomized training and test sets, 20 percent of data is used for test. Spatial and histogram features are added because improves the accuracy result of the classifier.
+After the trainning proccess an accuracy of 99.35% is obtained.
 
 ![alt text][image2]
 
@@ -65,7 +67,11 @@ I trained a linear SVM using...
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+As we can see in cell 11 and in the next images, sliding windows are used to detect cars on the road at different sizes. Far cars appears in the middle of the image, whilst near cars apears in the bottom, thats the reason why windows increase their size when are in the bottom of the image.
+
+Scales are decided depending on the size that cars appears in image. Windows bigger than cars produce detection of cars bigger than in reality.
+
+Overlap were obtained experimentally, detecting correctly cars in the whole video.
 
 ![alt text][image3]
 ![alt text][image4]
@@ -74,33 +80,40 @@ I decided to search random window positions at random scales all over the image 
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+Functions created for car finding are in cells 9 and 10 of the IPhyton notebook. Four different scales are used from 1.0 to 2.5 with the features and classifier explained before.
+It was important to scale correctly the image, because depending on the format image values vary from 0 to 255 or from 0 to 1.
+
+###Filter false positives an overllapping bounding boxes.
+
+####1. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
+
+As we can see in pipeline detection (Cell 16), boxes detected in each frame of the video are recorded using class called `Hist_Boxes` (Cell 17). With the last n frames detection a heatmap is created and thresholded to identify vehicle positions.
+
+I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+
+Here's an example result showing the heatmap and the bounding boxes for two test images, for more we can see cell 18.
+![alt text][image7]
 
 ---
 ### Video Implementation
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
 
-####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
-
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
-
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
-
-### Here are six frames and their corresponding heatmaps:
-![alt text][image7]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
+In cells 19 to 27 videos are generated.
+For `test_video.mp4` and `project_video.mp4` are generated videos which include the final result, all the windows detected in this frame and the hot areas. These videos are the next [link to test_video_vis.mp4](./test_video_vis.mp4), [link to project_video_vis.mp4](./project_video_vis.mp4).
+In the next image is showed a frame:
 ![alt text][image8]
 
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
+Also the `project_video.mp4` lanes are detected using the functions of project 4 (Cell 25), so we can see in the same image lanes and car detected simultaneously [link to my final video result](./project_video_final.mp4)
 ![alt text][image9]
-
----
 
 ###Discussion
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+With the method used when two cars are closer are considered the same but is not correct. So separate it could be intereseting.
+
+If I were going to pursue this project further I will try using Deep learning because is a great tool that can be used to anotate the whole image.
+
+Also can be interesting detect what cars are viewed from front or from behind, to detect the direction of the detected car to ours.
+
