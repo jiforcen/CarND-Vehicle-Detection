@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 [image1]: ./output_images/HOG.png
-[image2]: ./output_images/results.png
+[image2]: ./output_images/Results.png
 [image3]: ./output_images/Window1.png
 [image4]: ./output_images/Window2.png
 [image5]: ./output_images/Window3.png
